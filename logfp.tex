@@ -1,0 +1,127 @@
+%Author: Henryk Trappmann, created 20080622
+
+\begin{proposition}
+  Let $b>1$ then for each integer $k\ge 2$ there is exactly one solution
+  $z$ of $z=b^z$ in the horizontal strip $2\pi
+  (k-1)/\ln(b)\le\Im(z)<2\pi k/\ln(b)$. We call this solution
+  $b[k]$. More specifically it is
+  situated in $2(k-1)\pi/\ln(b) < \Im(z) < (2\pi k -\pi)/\ln(b)$. For $k=1$ we distinguish 3 cases :
+  \begin{enumerate}
+  \item If $b>e^{1/e}$ then the above is also valid for $k=1$.
+  \item
+  If $b=e^{1/e}$ then there is exactly one solution for $k=1$,
+  this solution is $e=:b[1]$;
+  \item
+  If $1<b<e^{1/e}$ then there are exactly two solutions
+  $b^-<e<b^+=:b[1]$.
+  \end{enumerate}
+  For each solution $b[j]$, $j\ge 1$, the conjugate is also a
+  solution of the equation which we denote by $b[-j]$. There are no
+  other solutions than the before mentioned.
+\end{proposition}
+\begin{proof}
+  Let $z=re^{i\alpha}=r(\cos(\alpha)+i\sin(\alpha))$ and let
+  $c=\ln(b)$ then the fixed point equation is equivalent to the
+  equation system:
+  \begin{align}
+    r&=e^{cr\cos(\alpha)}\label{eq:radius}\\
+    \alpha&=cr\sin(\alpha)\label{eq:angle}
+  \end{align}
+  Let us now substitute $s=cr$ and assume $\alpha\neq 2\pi m$,
+  for any integer $m\ge 0$:
+  \begin{align*}
+    \ln(s)-\ln(c)=\ln(r) &= s\cos(\alpha)\\
+    s&=\frac{\alpha}{\sin(\alpha)}
+  \end{align*}
+  and substituting the second into the first
+  \begin{align*}
+    \ln\frac{\alpha}{\sin(\alpha)}-\ln(c) &= \alpha
+    \frac{\cos(\alpha)}{\sin(\alpha)}\\
+    f(\alpha):=\ln\frac{\alpha}{\sin(\alpha)}-\alpha\cot(\alpha)&=\ln(c)
+  \end{align*}
+  We show that $f$ is strictly increasing on $2k\pi< \alpha <
+  (2k+1)\pi$ for $k\ge 0$ and strictly decreasing for $k<0$ by
+  contemplating the sign of its derivative:
+  \begin{align*}
+    f'(x) &= \frac{\sin(x)}{x}\left( -\frac{x \cos(x)}{\sin(x)^2}
+      + \frac{1}{\sin(x)} \right) 
+    -\frac{\cos(x)}{\sin(x)} - x\left(-\sin(x)\frac{1}{\sin(x)}
+      +\cos(x)\frac{-1}{\sin(x)^2}\cos(x) \right)\\
+    &= - 2\cot(x) +\frac{1}{x}+x + x\cot(x)^2 = 
+     x+\frac{-2 x \cot(x) + 1 + x^2 \cot(x)^2}{x}\\
+    &= x+\frac{(1- x \cot(x))^2 }{x}
+  \end{align*}
+  The last line is positive for $x>0$ and negative for $x<0$, so there
+  can be at most one solution of $f(x)=\ln(c)$ on $x\in(2 k\pi, 2 k\pi + \pi)$
+  and there is a solution for $k\neq 0,-1$ because in this case
+  $f((2k\pi,(2k+1)\pi))=(-\infty,+\infty)$.
+  The imaginary part of $z$ for this solution is $r \sin(\alpha)$
+  which is equal to $\alpha/\ln(b)$ by \eqref{eq:angle}, so there is
+  exactly one solution in $2k \pi/\ln(b) < \Im(z) < (2\pi(k+1)
+  -\pi)/\ln(b)$ for $k\neq 0,-1$.
+
+  Let us now consider the case $k=0$. Here $f((0,\pi))=(-1,\infty)$,
+  so if $c>1/e$ then $\ln(c)>-1$ and there is exactly one solution
+  $f(x)=\ln(c)$ for $0<x<\pi$. If $\ln(c)\le -1$ then $f(x)=\ln(c)$ has
+  no solution in $0<x<\pi$.
+
+  We now consider the case $\alpha=2k\pi$, $k\ge 0$. If $k>0$ then
+  \eqref{eq:angle} is invalid. So we consider $\alpha=0$ for which
+  equation \eqref{eq:angle} is always valid. In this case only 
+  $r=e^{cr}$ has to be satisfied. Now we look for zeros on $0\le
+  x<\infty$ of the corresponding $g(x)=e^{cx}-x$. We can determine the
+  global minimum $\mu$ at $x$ of this function by 
+  \begin{align*}
+    0&=g'(x)=ce^{cx}-1\\
+    x&=\frac{1}{c}\ln\frac{1}{c}=-\frac{\ln(c)}{c}\\
+    g''(x)&=c^2e^{cx}=c^2\frac{1}{c}=c>0\\
+    \mu:=g(x)&=\frac{1}{c}(1+\ln(c))
+  \end{align*}
+  Clearly the minimum $\mu$ is smaller than 0 for $\ln(c)<-1$ and
+  equal to $0$ for $\ln(c)=-1$ which corresponds to the last both
+  cases $c=\frac{1}{e}$ having one solution and $0<c<\frac{1}{e}$
+  having two solutions.
+\end{proof}
+\begin{proposition}[Repelling and attracting fixed points of $b^z$]
+  Let $b>1$, then $\abs{{\exp_b}'(p)}>1$ for all non-real fixed
+  points $p$. For the real fixed points in the
+  case $1<b<e^{1/e}$ we have 
+  \begin{align}
+    {\exp_b}'(b^-) &< 1 & {\exp_b}'(b^+)&>1.
+  \end{align}
+  and ${\exp_b}'(e)=1$ for $b=e^{1/e}$.
+\end{proposition}
+
+\begin{proposition}
+  Let $b>e^{1/e}$ and let
+  \begin{align*}
+    \log_{b,k}(z) &:= \frac{\log (z) + 2\pi i k}{\ln(b)}
+  \end{align*}
+  then for any $k>0$ and $z_0$ in the upper halfplane:
+  \begin{align*}
+    b[k]&=\lim_{n\to\infty} {\log_{b,k-1}}^{[n]}(z_0)\\
+    {\exp_b}'(b[k]) &= \log_{b,k-1}(b[k]).
+  \end{align*}
+\end{proposition}
+The fixed points can in the same way obtained as in knowledge
+\ref{wk:fixedpoint:formula} via the branches of $\sfrt$, $\sfpw$ and
+Lambert $W$, where the last is most important practically, as Lambert
+$W$ is implemented (with its branches) in most computer algebra
+systems
+\begin{center}
+\begin{tabular}{l|c|c|c}
+  &Maple{\texttrademark} &Mathematica{\texttrademark} &Sage{\texttrademark}  \\\hline
+       $W_k(z)=$ &LambertW(k,z) & ProductLog[k,z]& mpmath.lambertw(z,k)
+\end{tabular}
+\end{center}
+With this branching we obtain for $k\ge 1$
+\begin{align}
+  &&b[k] &= \frac{W_{-k}(-\ln(b))}{-\ln(b)}&1&<b\\
+  b^- &= \frac{W_{0}(-\ln(b))}{-\ln(b)} &
+  b^+ &= \frac{W_{-1}(-\ln(b))}{-\ln(b)} & 
+  1&<b\le\eta.
+\end{align}
+
+% Local Variables:
+% TeX-master: "main"
+% End:

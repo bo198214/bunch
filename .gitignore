@@ -1,0 +1,15 @@
+*.bbl
+*.blg
+*.log
+*.aux
+*.dvi
+*.out
+/main.pdf
+*~
+*#
+/auto/
+/_region_.tex
+*.pyc
+Rslog-Islog300,1-sqrt2.png
+/.hg
+/.hgignore
