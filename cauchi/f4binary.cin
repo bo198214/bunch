@@ -1,0 +1,34 @@
+//z_type Zo=z_type(.31813150520476413, 1.3372357014306895);
+//z_type Zc=z_type(.31813150520476413,-1.3372357014306895);
+//#include "zo.inc"
+z_type Zo=z_type( 0.824678546142074, 1.567432123849648);
+z_type Zc=z_type( 0.824678546142074,-1.567432123849648);
+DB L=log(2.);// 0.693147180559945
+z_type Q=z_type( 0.205110688544989, 1.086461157365470);// =L*Zo+log(L)
+z_type T=z_type( 5.584142435543391, 1.054218360336937);
+#include "GLxw2048.inc"
+//DB L=log(2.);
+z_type f4binary(z_type z){ //NOT SHIFTED FOR x1 !!!!
+	#include"f2048binary.inc"
+	//K and A are defined there
+	 int j,k,m,n; DB x,y, u, t; z_type c,d, cu,cd;
+	z_type E[K],G[K];
+	DO(k,K){c=F[k];E[k]=log(c)/L;G[k]=exp(c*L);}
+//	the initioalization abouve should run at the compillation
+	c=0.;
+        DO(k,K){t=A*GLx[k]; c+= GLw[k]*( G[k]/(z_type( 1.,t)-z) - E[k]/(z_type(-1.,t)-z) );}
+        cu=.5-I/(2.*M_PI)*log( (z_type(1.,-A)+z)/(z_type(1., A)-z) );
+        cd=.5-I/(2.*M_PI)*log( (z_type(1.,-A)-z)/(z_type(1., A)+z) );
+        return c*(A/(2.*M_PI)) +Zo*cu+Zc*cd;
+}
+
+//#include "figx1.inc"
+DB x1= 0.0262474248816494;
+
+
+z_type F4binary(z_type z){	DB x=Re(z);
+//			DB L=log(2.);
+			if(x<-.5) return log(F4binary(z+1.))/L; 
+			if(x> .5) return exp(F4binary(z-1.)*L); 
+			return f4binary(z+x1);
+		}

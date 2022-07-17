@@ -1,0 +1,10 @@
+//p=2;q=1;
+for(m=-4;m<4;m++)for(n=2;n<10;n+=2)conto(o,f,w,v,X,Y,M,N, (m+.1*n),-q,q);fprintf(o,".025 W 0 .6 0 RGB S\n");
+for(m=0;m<4;m++) for(n=2;n<10;n+=2)conto(o,g,w,v,X,Y,M,N,-(m+.1*n),-q,q);fprintf(o,".025 W .9 0 0 RGB S\n");
+for(m=0;m<4;m++) for(n=2;n<10;n+=2)conto(o,g,w,v,X,Y,M,N, (m+.1*n),-q,q);fprintf(o,".025 W 0 0 .9 RGB S\n");
+
+for(m=1;m<5;m++) conto(o,f,w,v,X,Y,M,N, (0.-m),-p,p); fprintf(o,".07 W .8 0 0 RGB S\n");
+for(m=1;m<5;m++) conto(o,f,w,v,X,Y,M,N, (0.+m),-p,p); fprintf(o,".07 W 0 0 .8 RGB S\n");
+                 conto(o,f,w,v,X,Y,M,N, (0.  ),-p,p); fprintf(o,".07 W .5 0 .5 RGB S\n");
+for(m=-4;m<5;m++)conto(o,g,w,v,X,Y,M,N, (0.+m),-p,p); fprintf(o,".07 W 0 0 0 RGB S\n");
+
